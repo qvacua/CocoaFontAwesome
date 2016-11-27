@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CocoaFontAwesome.xcscheme</key>
+		<key>CocoaFontAwesome.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>CocoaFontAwesomeDemo.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -15,7 +20,12 @@
 		<key>4BBB16521DEB6EA1002A36AC</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
+		</dict>
+		<key>4BBB16611DEB6EBA002A36AC</key>
+		<dict>
+			<key>primary</key>
+			<true />
 		</dict>
 	</dict>
 </dict>

@@ -15,5 +15,4 @@ FOUNDATION_EXPORT double CocoaFontAwesomeVersionNumber;
 FOUNDATION_EXPORT const unsigned char CocoaFontAwesomeVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <CocoaFontAwesome/PublicHeader.h>
-
-
+#import <CocoaFontAwesome/NSImage+Trim.h>
