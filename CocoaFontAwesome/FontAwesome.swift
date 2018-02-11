@@ -37,7 +37,7 @@ public extension NSFont {
   /// - returns: A UIFont object of FontAwesome.
   public class func fontAwesome(ofSize fontSize: CGFloat) -> NSFont {
     let name = "FontAwesome"
-    let fontMembers = NSFontManager.shared().availableMembers(ofFontFamily: name) ?? []
+    let fontMembers = NSFontManager.shared.availableMembers(ofFontFamily: name) ?? []
     if fontMembers.isEmpty {
       FontLoader.loadFont(name)
     }
@@ -127,10 +127,10 @@ public extension NSImage {
 
     let fontSize = min(size.width / fontAspectRatio, size.height)
     let attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: name),
-                                              attributes: [ NSFontAttributeName: NSFont.fontAwesome(ofSize: fontSize),
-                                                            NSForegroundColorAttributeName: textColor,
-                                                            NSBackgroundColorAttributeName: backgroundColor,
-                                                            NSParagraphStyleAttributeName: paragraph ])
+                                              attributes: [ NSAttributedStringKey.font: NSFont.fontAwesome(ofSize: fontSize),
+                                                            NSAttributedStringKey.foregroundColor: textColor,
+                                                            NSAttributedStringKey.backgroundColor: backgroundColor,
+                                                            NSAttributedStringKey.paragraphStyle: paragraph ])
 
     let image = NSImage(size: size)
 
@@ -176,18 +176,17 @@ private class FontLoader {
     let bundle = Bundle(for: FontLoader.self)
     let fontURL = bundle.url(forResource: name, withExtension: "otf")!
 
-    let data = try! Data(contentsOf: fontURL)
-
-    let provider = CGDataProvider(data: data as CFData)
-    let font = CGFont(provider!)
+    guard
+        let data = try? Data(contentsOf: fontURL),
+        let provider = CGDataProvider(data: data as CFData),
+        let font = CGFont(provider)
+        else { return }
 
     var error: Unmanaged<CFError>?
     if !CTFontManagerRegisterGraphicsFont(font, &error) {
       let errorDescription: CFString = CFErrorCopyDescription(error!.takeUnretainedValue())
-      let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
-      NSException(name: NSExceptionName.internalInconsistencyException,
-                  reason: errorDescription as String,
-                  userInfo: [ NSUnderlyingErrorKey: nsError ]).raise()
+      guard let nsError = error?.takeUnretainedValue() as AnyObject as? NSError else { return }
+      NSException(name: NSExceptionName.internalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
     }
   }
 }

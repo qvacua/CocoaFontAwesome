@@ -16,21 +16,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     let contentView = self.window.contentView!
-      let dummy = Dummy(frame: CGRect(x: 50, y: 50, width: 22, height: 22))
-      dummy.wantsLayer = true
-      dummy.layer?.backgroundColor = NSColor.yellow.cgColor
+    let image = NSImage.fontAwesomeIcon(code: "fa-times-circle",
+                                        textColor: .darkGray,
+                                        dimension: 16)!
+    let button = NSButton(frame: CGRect(x: 50, y: 50, width: 40, height: 40))
+    button.imagePosition = .imageOnly
+    button.image = image
+    button.isBordered = false
 
-      contentView.addSubview(dummy)
-    }
+    // The following disables the square appearing when pushed.
+    let cell = button.cell as? NSButtonCell
+    cell?.highlightsBy = .contentsCellMask
+    cell?.backgroundColor = .yellow
+
+    contentView.addSubview(button)
   }
+}
 
-  class Dummy: NSView {
+class Dummy: NSView {
 
-    let image = NSImage.fontAwesomeIcon(name: .close,
-                                        textColor: .black,
-                                        dimension: 18)
+  let image = NSImage.fontAwesomeIcon(name: .close,
+                                      textColor: .black,
+                                      dimension: 18)
 
-    override func draw(_ dirtyRect: NSRect) {
-      image.draw(in: CGRect(x: 2, y: 2, width: 18, height: 18))
-    }
+  override func draw(_ dirtyRect: NSRect) {
+    image.draw(in: CGRect(x: 2, y: 2, width: 18, height: 18))
   }
+}
