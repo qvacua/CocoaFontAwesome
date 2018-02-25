@@ -35,14 +35,18 @@ public extension NSFont {
   ///
   /// - parameter ofSize: The preferred font size.
   /// - returns: A UIFont object of FontAwesome.
-  public class func fontAwesome(ofSize fontSize: CGFloat) -> NSFont {
+  public class func fontAwesome(ofSize fontSize: CGFloat) -> NSFont? {
     let name = "FontAwesome"
     let fontMembers = NSFontManager.shared.availableMembers(ofFontFamily: name) ?? []
     if fontMembers.isEmpty {
-      FontLoader.loadFont(name)
+      do {
+        try FontLoader.loadFont(name)
+      } catch {
+        return nil
+      }
     }
 
-    return NSFont(name: name, size: fontSize)!
+    return NSFont(name: name, size: fontSize)
   }
 }
 
@@ -172,7 +176,7 @@ public extension NSImage {
 // MARK: - Private
 
 private class FontLoader {
-  class func loadFont(_ name: String) {
+  class func loadFont(_ name: String) throws {
     let bundle = Bundle(for: FontLoader.self)
     let fontURL = bundle.url(forResource: name, withExtension: "otf")!
 
@@ -186,7 +190,12 @@ private class FontLoader {
     if !CTFontManagerRegisterGraphicsFont(font, &error) {
       let errorDescription: CFString = CFErrorCopyDescription(error!.takeUnretainedValue())
       guard let nsError = error?.takeUnretainedValue() as AnyObject as? NSError else { return }
-      NSException(name: NSExceptionName.internalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
+      
+      throw NSError(domain: "CocoaFontAwesome", code: 0, userInfo: [
+        "name": NSExceptionName.internalInconsistencyException,
+        "reason": errorDescription as String,
+        NSUnderlyingErrorKey: nsError,
+      ])
     }
   }
 }
