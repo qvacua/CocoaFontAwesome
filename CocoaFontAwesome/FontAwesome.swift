@@ -129,12 +129,21 @@ public extension NSImage {
     // Taken from FontAwesome.io's Fixed Width Icon CSS
     let fontAspectRatio: CGFloat = 1.28571429
 
+    let attributedString: NSAttributedString
     let fontSize = min(size.width / fontAspectRatio, size.height)
-    let attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: name),
-                                              attributes: [ NSAttributedStringKey.font: NSFont.fontAwesome(ofSize: fontSize),
-                                                            NSAttributedStringKey.foregroundColor: textColor,
-                                                            NSAttributedStringKey.backgroundColor: backgroundColor,
-                                                            NSAttributedStringKey.paragraphStyle: paragraph ])
+    if let font = NSFont.fontAwesome(ofSize: fontSize) {
+      attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: name),
+          attributes: [NSAttributedStringKey.font: font,
+                       NSAttributedStringKey.foregroundColor: textColor,
+                       NSAttributedStringKey.backgroundColor: backgroundColor,
+                       NSAttributedStringKey.paragraphStyle: paragraph])
+
+    } else {
+      attributedString = NSAttributedString(string: "?",
+          attributes: [NSAttributedStringKey.foregroundColor: textColor,
+                       NSAttributedStringKey.backgroundColor: backgroundColor,
+                       NSAttributedStringKey.paragraphStyle: paragraph])
+    }
 
     let image = NSImage(size: size)
 
