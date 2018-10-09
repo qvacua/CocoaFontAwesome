@@ -187,12 +187,13 @@ public extension NSImage {
         paragraph.alignment = NSTextAlignment.center
 
         let fontSize = min(size.width / FontAwesomeConfig.fontAspectRatio, size.height)
+        let font = NSFont.fontAwesome(ofSize: fontSize, style: style)
 
         // stroke width expects a whole number percentage of the font size
         let strokeWidth: CGFloat = fontSize == 0 ? 0 : (-100 * borderWidth / fontSize)
 
         let attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: name), attributes: [
-            NSAttributedString.Key.font: NSFont.fontAwesome(ofSize: fontSize, style: style),
+            NSAttributedString.Key.font: font,
             NSAttributedString.Key.foregroundColor: textColor,
             NSAttributedString.Key.backgroundColor: backgroundColor,
             NSAttributedString.Key.paragraphStyle: paragraph,
@@ -200,24 +201,29 @@ public extension NSImage {
             NSAttributedString.Key.strokeColor: borderColor
             ])
 
-        let image = NSImage(size: size)
+        let stringSize = attributedString.size()
+        let image = NSImage(size: stringSize)
 
         image.lockFocus()
-        attributedString.draw(in: CGRect(x: 0, y: (size.height - fontSize) / 2, width: size.width, height: size.height))
+        attributedString.draw(in: CGRect(x: 0,
+                                         y: (stringSize.height - fontSize) / 2,
+                                         width: stringSize.width,
+                                         height: stringSize.height))
         image.unlockFocus()
 
-        let trimmedImage = image.trimming()!
-        let trimmedSize = trimmedImage.size
+        // FIXME: Trimming the image appears to cut off portions of the image it shouldn't.
+//        let trimmedImage = image.trimming()!
+//        let trimmedSize = trimmedImage.size
+//
+//        let result = NSImage(size: size)
+//        result.lockFocus()
+//        trimmedImage.draw(at: CGPoint(x: (size.width - trimmedSize.width) / 2, y: (size.height - trimmedSize.height) / 2),
+//                          from: .zero,
+//                          operation: .copy,
+//                          fraction:1)
+//        result.unlockFocus()
 
-        let result = NSImage(size: size)
-        result.lockFocus()
-        trimmedImage.draw(at: CGPoint(x: (size.width - trimmedSize.width) / 2, y: (size.height - trimmedSize.height) / 2),
-                          from: .zero,
-                          operation: .copy,
-                          fraction:1)
-        result.unlockFocus()
-
-        return result
+        return image
     }
 
     /// Get a FontAwesome image with the given icon css code, text color, size and an optional background color.
