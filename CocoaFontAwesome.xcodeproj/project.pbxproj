@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1471D116216C393A0064647A /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1471D113216C39390064647A /* Font Awesome 5 Free-Solid-900.otf */; };
+		1471D117216C393A0064647A /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1471D114216C39390064647A /* Font Awesome 5 Free-Regular-400.otf */; };
+		1471D118216C393A0064647A /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1471D115216C393A0064647A /* Font Awesome 5 Brands-Regular-400.otf */; };
 		1929BA4D0D7FE22B010AB8C9 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1929BF9E6945BE9F9B6EB533 /* FontAwesome.swift */; };
-		4B91FFF81DEB867900447068 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B91FFF71DEB867900447068 /* FontAwesome.otf */; };
 		4B91FFFA1DEB870F00447068 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91FFF91DEB870F00447068 /* Enum.swift */; };
 		4BBB16581DEB6EA1002A36AC /* CocoaFontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BBB16561DEB6EA1002A36AC /* CocoaFontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4BBB16651DEB6EBA002A36AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBB16641DEB6EBA002A36AC /* AppDelegate.swift */; };
@@ -45,8 +47,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1471D113216C39390064647A /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Free-Solid-900.otf"; path = "FontAwesome.swift/FontAwesome/Font Awesome 5 Free-Solid-900.otf"; sourceTree = SOURCE_ROOT; };
+		1471D114216C39390064647A /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Free-Regular-400.otf"; path = "FontAwesome.swift/FontAwesome/Font Awesome 5 Free-Regular-400.otf"; sourceTree = SOURCE_ROOT; };
+		1471D115216C393A0064647A /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Brands-Regular-400.otf"; path = "FontAwesome.swift/FontAwesome/Font Awesome 5 Brands-Regular-400.otf"; sourceTree = SOURCE_ROOT; };
 		1929BF9E6945BE9F9B6EB533 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
-		4B91FFF71DEB867900447068 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = FontAwesome.swift/FontAwesome/FontAwesome.otf; sourceTree = SOURCE_ROOT; };
 		4B91FFF91DEB870F00447068 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = FontAwesome.swift/FontAwesome/Enum.swift; sourceTree = SOURCE_ROOT; };
 		4BBB16531DEB6EA1002A36AC /* CocoaFontAwesome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaFontAwesome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BBB16561DEB6EA1002A36AC /* CocoaFontAwesome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoaFontAwesome.h; sourceTree = "<group>"; };
@@ -103,7 +107,9 @@
 				4BBB16561DEB6EA1002A36AC /* CocoaFontAwesome.h */,
 				4B91FFF91DEB870F00447068 /* Enum.swift */,
 				4BBB16571DEB6EA1002A36AC /* Info.plist */,
-				4B91FFF71DEB867900447068 /* FontAwesome.otf */,
+				1471D115216C393A0064647A /* Font Awesome 5 Brands-Regular-400.otf */,
+				1471D114216C39390064647A /* Font Awesome 5 Free-Regular-400.otf */,
+				1471D113216C39390064647A /* Font Awesome 5 Free-Solid-900.otf */,
 				4BBB16781DEB6F73002A36AC /* NSImage+Trim.h */,
 				4BBB16791DEB6F73002A36AC /* NSImage+Trim.m */,
 				1929BF9E6945BE9F9B6EB533 /* FontAwesome.swift */,
@@ -219,7 +225,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B91FFF81DEB867900447068 /* FontAwesome.otf in Resources */,
+				1471D117216C393A0064647A /* Font Awesome 5 Free-Regular-400.otf in Resources */,
+				1471D116216C393A0064647A /* Font Awesome 5 Free-Solid-900.otf in Resources */,
+				1471D118216C393A0064647A /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
