@@ -174,6 +174,9 @@ public extension NSImage {
     /// - parameter size: The image size.
     /// - parameter backgroundColor: The background color (optional).
     /// - returns: A string that will appear as icon with FontAwesome
+    ///
+    /// - Note: The dimensions of the returned image may be smaller/larger than the requested `size`.
+    ///
     public static func fontAwesomeIcon(name: FontAwesome, style: FontAwesomeStyle, textColor: NSColor, size: CGSize, backgroundColor: NSColor = NSColor.clear, borderWidth: CGFloat = 0, borderColor: NSColor = NSColor.clear) -> NSImage {
 
         // Prevent application crash when passing size where width or height is set equal to or less than zero, by clipping width and height to a minimum of 1 pixel.
