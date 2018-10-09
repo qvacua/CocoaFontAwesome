@@ -92,12 +92,10 @@ public extension NSFont {
     /// This method should be called when setting icons without using code.
     public class func loadFontAwesome(ofStyle style: FontAwesomeStyle) {
         let availableMembers = NSFontManager.shared.availableMembers(ofFontFamily: style.fontFamilyName())
-        if let doesContain = availableMembers?.contains(where: { $0[0] as! String == style.fontName() }), doesContain {
+        if let isFontLoaded = availableMembers?.contains(where: { $0[0] as! String == style.fontName() }),
+            isFontLoaded {
             return
         }
-//        if NSFont.fontNames(forFamilyName: style.fontFamilyName()).contains(style.fontName()) {
-//            return
-//        }
 
         FontLoader.loadFont(style.fontFilename())
     }
