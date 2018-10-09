@@ -141,32 +141,32 @@ public extension String {
 /// A FontAwesome extension to NSImage.
 public extension NSImage {
 
-      public static func fontAwesomeIcon(name: FontAwesome,
-                                         style: FontAwesomeStyle,
-                                         textColor: NSColor,
-                                         dimension: CGFloat,
-                                         backgroundColor: NSColor = NSColor.clear) -> NSImage
-      {
+    public static func fontAwesomeIcon(name: FontAwesome,
+                                       style: FontAwesomeStyle,
+                                       textColor: NSColor,
+                                       dimension: CGFloat,
+                                       backgroundColor: NSColor = NSColor.clear) -> NSImage
+    {
         return fontAwesomeIcon(name: name,
                                style: style,
                                textColor: textColor,
                                size: CGSize(width: dimension, height: dimension),
                                backgroundColor: backgroundColor)
-      }
+    }
 
-      public static func fontAwesomeIcon(code: String,
-                                         style: FontAwesomeStyle,
-                                         textColor: NSColor,
-                                         dimension: CGFloat,
-                                         backgroundColor: NSColor = NSColor.clear) -> NSImage?
-      {
+    public static func fontAwesomeIcon(code: String,
+                                       style: FontAwesomeStyle,
+                                       textColor: NSColor,
+                                       dimension: CGFloat,
+                                       backgroundColor: NSColor = NSColor.clear) -> NSImage?
+    {
         guard let name = String.fontAwesome(code: code) else { return nil }
         return fontAwesomeIcon(name: name,
                                style: style,
                                textColor: textColor,
                                dimension: dimension,
                                backgroundColor: backgroundColor)
-      }
+    }
 
     /// Get a FontAwesome image with the given icon name, text color, size and an optional background color.
     ///
@@ -199,7 +199,7 @@ public extension NSImage {
             NSAttributedString.Key.paragraphStyle: paragraph,
             NSAttributedString.Key.strokeWidth: strokeWidth,
             NSAttributedString.Key.strokeColor: borderColor
-            ])
+        ])
 
         let stringSize = attributedString.size()
         let image = NSImage(size: stringSize)
