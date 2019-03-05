@@ -81,7 +81,7 @@ rightDone:
   destBox.origin = NSZeroPoint;
 
   [returnImg lockFocus];
-  [self drawInRect: destBox fromRect: *outBox operation: NSCompositeCopy fraction: 1.0];
+  [self drawInRect: destBox fromRect: *outBox operation: NSCompositingOperationCopy fraction: 1.0];
   [returnImg unlockFocus];
 
   return returnImg;

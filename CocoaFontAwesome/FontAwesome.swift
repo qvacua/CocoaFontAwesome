@@ -133,16 +133,16 @@ public extension NSImage {
     let fontSize = min(size.width / fontAspectRatio, size.height)
     if let font = NSFont.fontAwesome(ofSize: fontSize) {
       attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: name),
-          attributes: [NSAttributedStringKey.font: font,
-                       NSAttributedStringKey.foregroundColor: textColor,
-                       NSAttributedStringKey.backgroundColor: backgroundColor,
-                       NSAttributedStringKey.paragraphStyle: paragraph])
+          attributes: [NSAttributedString.Key.font: font,
+                       NSAttributedString.Key.foregroundColor: textColor,
+                       NSAttributedString.Key.backgroundColor: backgroundColor,
+                       NSAttributedString.Key.paragraphStyle: paragraph])
 
     } else {
       attributedString = NSAttributedString(string: "?",
-          attributes: [NSAttributedStringKey.foregroundColor: textColor,
-                       NSAttributedStringKey.backgroundColor: backgroundColor,
-                       NSAttributedStringKey.paragraphStyle: paragraph])
+          attributes: [NSAttributedString.Key.foregroundColor: textColor,
+                       NSAttributedString.Key.backgroundColor: backgroundColor,
+                       NSAttributedString.Key.paragraphStyle: paragraph])
     }
 
     let image = NSImage(size: size)
