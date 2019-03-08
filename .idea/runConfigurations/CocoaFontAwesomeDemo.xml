@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="CocoaFontAwesomeDemo" type="AppleRunConfiguration" factoryName="Application" nameIsGenerated="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CocoaFontAwesome" TARGET_NAME="CocoaFontAwesomeDemo" CONFIG_NAME="Debug" SCHEME_NAME="CocoaFontAwesomeDemo" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier" LOCATION_SCENARIO_TYPE="1" RUN_TARGET_PROJECT_NAME="CocoaFontAwesome" RUN_TARGET_NAME="CocoaFontAwesomeDemo" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+    <embedded_app_extension_list />
+    <method v="2">
+      <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>
