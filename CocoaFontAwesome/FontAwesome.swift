@@ -212,18 +212,6 @@ public extension NSImage {
                                          height: stringSize.height))
         image.unlockFocus()
 
-        // FIXME: Trimming the image appears to cut off portions of the image it shouldn't.
-//        let trimmedImage = image.trimming()!
-//        let trimmedSize = trimmedImage.size
-//
-//        let result = NSImage(size: size)
-//        result.lockFocus()
-//        trimmedImage.draw(at: CGPoint(x: (size.width - trimmedSize.width) / 2, y: (size.height - trimmedSize.height) / 2),
-//                          from: .zero,
-//                          operation: .copy,
-//                          fraction:1)
-//        result.unlockFocus()
-
         return image
     }
 
